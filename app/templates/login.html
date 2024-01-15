@@ -6,6 +6,10 @@
     By using novalidate, you're telling the browser to skip this validation
     #}
     <form action="" method="POST" novalidate>
+        {# form.hidden_tag() in Flask-WTF is a convenient method to include all hidden fields 
+            (most importantly, the CSRF token) in a form, which is essential for both functionality 
+            (in case there are other hidden fields in use) and security (for CSRF protection) 
+        #}
         {{ form.hidden_tag() }}
         <p>
             {{ form.username.label }} <br>
