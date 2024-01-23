@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: flask-app
-          image: <acr-name>.azurecr.io/microblog:latest
+          image: felixacr.azurecr.io/microblog:latest
           ports:
             - containerPort: 5000
           env:
