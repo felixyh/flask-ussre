@@ -4,7 +4,7 @@ on:
   push:
     branches: [ flask2024 ]
     paths:
-      - 'path/to/FlaskApp/**'
+      - 'app'
       - '.github/workflows/ussrelab-ci-cd.yml'
 
 jobs:
