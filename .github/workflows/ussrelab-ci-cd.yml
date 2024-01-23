@@ -24,13 +24,19 @@ jobs:
       run: |
         docker build -t <acr-name>.azurecr.io/microblog:latest .
         docker push <acr-name>.azurecr.io/microblog:latest
+    
+    - name: Azure login
+      id: login
+      uses: azure/login@v1.4.3
+      with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     - name: Set up Azure CLI
       uses: azure/setup-azure-cli@v1
 
     - name: Connect to Azure Kubernetes Service
       run: |
-        az aks get-credentials --resource-group <myResourceGroup> --name <myAKSCluster>
+        az aks get-credentials --resource-group ${{ secrets.resource_group }} --name ${{ secrets.cluster_name }}
 
     - name: Deploy Flask App to AKS
       run: |
