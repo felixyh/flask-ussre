@@ -25,16 +25,11 @@ jobs:
         docker build -t ${{ secrets.acr_name }}.azurecr.io/microblog:latest .
         docker push ${{ secrets.acr_name }}.azurecr.io/microblog:latest
     
-    - name: Set up Azure CLI
-      uses: Azure/cli@v1.0.9
-    
     - name: Azure login
       id: login
       uses: azure/login@v1.4.3
       with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-
 
     - name: Connect to Azure Kubernetes Service
       run: |
