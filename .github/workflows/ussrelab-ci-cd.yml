@@ -37,5 +37,4 @@ jobs:
 
     - name: Deploy Flask App to AKS
       run: |
-        kubectl apply -f flask-deployment.yaml
-        
+        kubectl apply -f k8s-deployment/flask-deployment.yaml
